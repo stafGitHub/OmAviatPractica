@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в систему</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Вход в систему</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Логин</label>
+                <input type="text" id="username" name="username" required>
+                <div class="error" id="usernameError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error" id="passwordError"></div>
+            </div>
+            
+            <button type="submit" class="btn">Войти</button>
+            
+            <div class="links">
+                <a href="registration.html">Зарегистрироваться</a>
+                
+            </div>
+        </form>
+    </div>
+
+    <script src="scriptauth.js"></script>
+
+    <div id='adminPanel' class='admin-section hidden'>
+        <h2>Добро пожаловать, админ!</h2>
+        <button onclick='adminLogout()'>Выйти</button>
+    </div>
+</div>
+
+<script>
+// Встроенные данные для проверки
+const adminCredentials = {
+  login: 'admin',
+  password: 'adminka'
+};
+
+// Проверка при загрузке страницы
+window.onload = function() {
+  if (localStorage.getItem('isAdminLoggedIn') === 'true') {
+    showAdminPanel();
+  } else {
+    hideAdminPanel();
+  }
+};
+
+// Обработка формы входа
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  // Проверка на админский вход
+  if (username === adminCredentials.login && password === adminCredentials.password) {
+    localStorage.setItem('isAdminLoggedIn', 'true');
+    showAdminPanel();
+    alert('Вы вошли как админ');
+    window.location.href = 'main.html';
+    return;
+  }
+
+  // Здесь можно добавить проверку обычных пользователей, если есть база данных или список
+
+  // Для примера — просто сообщение о неправильных данных
+  alert('Неверный логин или пароль');
+});
+
+// Функции для управления панелью администратора
+function showAdminPanel() {
+  document.getElementById('adminPanel').classList.remove('hidden');
+}
+
+function hideAdminPanel() {
+  document.getElementById('adminPanel').classList.add('hidden');
+}
+
+// Выйти из админ-панели
+function adminLogout() {
+  localStorage.setItem('isAdminLoggedIn', 'false');
+  hideAdminPanel();
+}
+</script>
+
+<style>
+/* Можно оставить ваши стили или добавить свои */
+.hidden { display: none; }
+.admin-section { margin-top: 20px; padding: 10px; border: 1px solid #ccc; background-color: #f0f0f0; }
+</style>
+</body>
+</html>
