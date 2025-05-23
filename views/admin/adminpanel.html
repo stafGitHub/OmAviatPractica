@@ -2,95 +2,95 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Панель администратора</title>
-    <link rel="stylesheet" href="../public/css/admin.css">
+    <link href="../../public/css/admin.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Форма входа -->
-    <div id="loginForm" class="login-container">
-        <div class="login-box">
-            <h1>Вход в панель администратора</h1>
-            <div class="form-group">
-                <label for="adminLogin">Логин:</label>
-                <input type="text" id="adminLogin" required>
+<!-- Форма входа -->
+<div class="login-container" id="loginForm">
+    <div class="login-box">
+        <h1>Вход в панель администратора</h1>
+        <div class="form-group">
+            <label for="adminLogin">Логин:</label>
+            <input id="adminLogin" required type="text">
+        </div>
+        <div class="form-group">
+            <label for="adminPassword">Пароль:</label>
+            <input id="adminPassword" required type="password">
+        </div>
+        <button class="btn" id="loginBtn">Войти</button>
+        <div class="error-message" id="loginError"></div>
+    </div>
+</div>
+
+<!-- Основной интерфейс администратора (скрыт до входа) -->
+<div class="hidden" id="adminPanel">
+    <header class="admin-header">
+        <h1>Панель администратора</h1>
+        <button class="btn logout-btn" id="logoutBtn">Выйти</button>
+    </header>
+
+    <div class="admin-container">
+        <div class="filters">
+            <select id="statusFilter">
+                <option value="all">Все заявки</option>
+                <option value="new">Новые</option>
+                <option value="in_progress">В работе</option>
+                <option value="completed">Выполненные</option>
+                <option value="cancelled">Отмененные</option>
+            </select>
+            <input id="searchInput" placeholder="Поиск по ФИО или телефону" type="text">
+        </div>
+
+        <div class="requests-grid">
+            <div class="grid-header">
+                <div>№</div>
+                <div>ФИО</div>
+                <div>Телефон</div>
+                <div>Услуга</div>
+                <div>Дата</div>
+                <div>Статус</div>
+                <div>Действия</div>
             </div>
-            <div class="form-group">
-                <label for="adminPassword">Пароль:</label>
-                <input type="password" id="adminPassword" required>
+            <div class="requests-list" id="requestsList">
+                <!-- Заявки будут загружаться здесь -->
             </div>
-            <button id="loginBtn" class="btn">Войти</button>
-            <div id="loginError" class="error-message"></div>
         </div>
     </div>
 
-    <!-- Основной интерфейс администратора (скрыт до входа) -->
-    <div id="adminPanel" class="hidden">
-        <header class="admin-header">
-            <h1>Панель администратора</h1>
-            <button id="logoutBtn" class="btn logout-btn">Выйти</button>
-        </header>
+    <!-- Модальное окно изменения статуса -->
+    <div class="modal hidden" id="statusModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Изменение статуса заявки <span id="modalRequestId"></span></h2>
 
-        <div class="admin-container">
-            <div class="filters">
-                <select id="statusFilter">
-                    <option value="all">Все заявки</option>
-                    <option value="new">Новые</option>
+            <div class="form-group">
+                <label>Текущий статус: <span id="currentStatus"></span></label>
+            </div>
+
+            <div class="form-group">
+                <label>Новый статус:</label>
+                <select id="newStatus">
                     <option value="in_progress">В работе</option>
-                    <option value="completed">Выполненные</option>
-                    <option value="cancelled">Отмененные</option>
+                    <option value="completed">Выполнено</option>
+                    <option value="cancelled">Отменить</option>
                 </select>
-                <input type="text" id="searchInput" placeholder="Поиск по ФИО или телефону">
             </div>
 
-            <div class="requests-grid">
-                <div class="grid-header">
-                    <div>№</div>
-                    <div>ФИО</div>
-                    <div>Телефон</div>
-                    <div>Услуга</div>
-                    <div>Дата</div>
-                    <div>Статус</div>
-                    <div>Действия</div>
-                </div>
-                <div id="requestsList" class="requests-list">
-                    <!-- Заявки будут загружаться здесь -->
-                </div>
+            <div class="form-group hidden" id="cancelReasonGroup">
+                <label for="cancelReason">Причина отмены:</label>
+                <textarea id="cancelReason" required rows="3"></textarea>
             </div>
-        </div>
 
-        <!-- Модальное окно изменения статуса -->
-        <div id="statusModal" class="modal hidden">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2>Изменение статуса заявки <span id="modalRequestId"></span></h2>
-                
-                <div class="form-group">
-                    <label>Текущий статус: <span id="currentStatus"></span></label>
-                </div>
-                
-                <div class="form-group">
-                    <label>Новый статус:</label>
-                    <select id="newStatus">
-                        <option value="in_progress">В работе</option>
-                        <option value="completed">Выполнено</option>
-                        <option value="cancelled">Отменить</option>
-                    </select>
-                </div>
-                
-                <div id="cancelReasonGroup" class="form-group hidden">
-                    <label for="cancelReason">Причина отмены:</label>
-                    <textarea id="cancelReason" rows="3" required></textarea>
-                </div>
-                
-                <div class="modal-actions">
-                    <button id="saveStatusBtn" class="btn">Сохранить</button>
-                    <button id="cancelStatusBtn" class="btn secondary">Отмена</button>
-                </div>
+            <div class="modal-actions">
+                <button class="btn" id="saveStatusBtn">Сохранить</button>
+                <button class="btn secondary" id="cancelStatusBtn">Отмена</button>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="../public/js/admin.js"></script>
+<script src="../../public/js/admin.js"></script>
 </body>
 </html>

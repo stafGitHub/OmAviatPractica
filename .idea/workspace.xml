@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="662ebf7b-a0e2-4268-9b90-6cade5031026" name="Changes" comment="" />
+    <list default="true" id="662ebf7b-a0e2-4268-9b90-6cade5031026" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/OmAviatPractica.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/order-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminpanel.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/adminpanel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application form page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/sign-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eco.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalnyaiauborka.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inayausluga.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/money.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obshiiclining.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/panel admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poslestroyiki.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/sign-up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/requests-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptappl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/order-form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptauth.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/scriptauth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptreg.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/scriptreg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptreq.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/scriptreq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylesreq.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/stylesreq.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uborshchiki.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ximchistkakover.jpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,6 +69,9 @@
     &quot;accountId&quot;: &quot;78fdd602-d30f-475b-b521-6e55ffb0fb44&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -40,23 +87,35 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sasha/ideaProjects/Sait moi ne sam",
+    "last_opened_file_path": "C:/Users/FogyX/Desktop/omaviatpractika/OmAviatPractica",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\FogyX\Desktop\omaviatpractika\OmAviatPractica\views\user" />
+      <recent name="C:\Users\FogyX\Desktop\omaviatpractika\OmAviatPractica\views\admin" />
+      <recent name="C:\Users\FogyX\Desktop\omaviatpractika\OmAviatPractica\views\auth" />
+      <recent name="C:\Users\FogyX\Desktop\omaviatpractika\OmAviatPractica\views" />
+      <recent name="C:\Users\FogyX\Desktop\omaviatpractika\OmAviatPractica\public\js" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
       </set>
     </attachedChunks>
   </component>
@@ -70,6 +129,9 @@
       <updated>1747295022644</updated>
       <workItem from="1747295024123" duration="3529000" />
       <workItem from="1747299688436" duration="32000" />
+      <workItem from="1747389258594" duration="3959000" />
+      <workItem from="1747561236275" duration="4149000" />
+      <workItem from="1747657791911" duration="14314000" />
     </task>
     <servers />
   </component>

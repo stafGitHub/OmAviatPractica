@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Элементы интерфейса
     const loginForm = document.getElementById('loginForm');
     const adminPanel = document.getElementById('adminPanel');
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupEventListeners() {
         // Вход в систему
         loginBtn.addEventListener('click', handleLogin);
-        adminPassword.addEventListener('keypress', function(e) {
+        adminPassword.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') handleLogin();
         });
 
@@ -91,12 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Модальное окно изменения статуса
         closeModalBtn.addEventListener('click', closeStatusModal);
         cancelStatusBtn.addEventListener('click', closeStatusModal);
-        statusModal.addEventListener('click', function(e) {
+        statusModal.addEventListener('click', function (e) {
             if (e.target === statusModal) closeStatusModal();
         });
 
         // Изменение статуса
-        newStatus.addEventListener('change', function() {
+        newStatus.addEventListener('change', function () {
             cancelReasonGroup.classList.toggle('hidden', this.value !== 'cancelled');
         });
         saveStatusBtn.addEventListener('click', saveStatus);
@@ -135,10 +135,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Фильтрация заявок
         let filteredRequests = requests.filter(request => {
             const matchesStatus = status === 'all' || request.status === status;
-            const matchesSearch = searchQuery === '' || 
-                request.fio.toLowerCase().includes(searchQuery) || 
+            const matchesSearch = searchQuery === '' ||
+                request.fio.toLowerCase().includes(searchQuery) ||
                 request.phone.includes(searchQuery.replace(/\D/g, ''));
-            
+
             return matchesStatus && matchesSearch;
         });
 
@@ -155,20 +155,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const requestItem = document.createElement('div');
             requestItem.className = 'request-item';
             requestItem.setAttribute('data-id', request.id);
-            
+
             // Форматирование статуса
             const statusMap = {
-                new: { text: 'Новая', class: 'status-new' },
-                in_progress: { text: 'В работе', class: 'status-in_progress' },
-                completed: { text: 'Выполнена', class: 'status-completed' },
-                cancelled: { text: 'Отменена', class: 'status-cancelled' }
+                new: {text: 'Новая', class: 'status-new'},
+                in_progress: {text: 'В работе', class: 'status-in_progress'},
+                completed: {text: 'Выполнена', class: 'status-completed'},
+                cancelled: {text: 'Отменена', class: 'status-cancelled'}
             };
-            
-            const statusInfo = statusMap[request.status] || { text: request.status, class: '' };
-            
+
+            const statusInfo = statusMap[request.status] || {text: request.status, class: ''};
+
             // Форматирование даты
             const formattedDate = new Date(request.date).toLocaleDateString('ru-RU');
-            
+
             requestItem.innerHTML = `
                 <div data-label="№">${request.id}</div>
                 <div data-label="ФИО">${request.fio}</div>
@@ -182,12 +182,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="action-btn change-status-btn">Изменить статус</button>
                 </div>
             `;
-            
+
             // Добавляем обработчик для кнопки изменения статуса
             requestItem.querySelector('.change-status-btn').addEventListener('click', () => {
                 openStatusModal(request.id);
             });
-            
+
             requestsList.appendChild(requestItem);
         });
     }
@@ -196,10 +196,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function openStatusModal(requestId) {
         const request = requests.find(r => r.id === requestId);
         if (!request) return;
-        
+
         currentRequestId = requestId;
         modalRequestId.textContent = requestId;
-        
+
         // Устанавливаем текущий статус
         const statusMap = {
             new: 'Новая',
@@ -207,14 +207,14 @@ document.addEventListener('DOMContentLoaded', function() {
             completed: 'Выполнена',
             cancelled: 'Отменена'
         };
-        
+
         currentStatus.textContent = statusMap[request.status] || request.status;
-        
+
         // Сбрасываем форму
         newStatus.value = 'in_progress';
         cancelReason.value = '';
         cancelReasonGroup.classList.add('hidden');
-        
+
         // Открываем модальное окно
         statusModal.classList.remove('hidden');
     }
@@ -228,30 +228,30 @@ document.addEventListener('DOMContentLoaded', function() {
     function saveStatus() {
         const request = requests.find(r => r.id === currentRequestId);
         if (!request) return;
-        
+
         const newStatusValue = newStatus.value;
         const cancelReasonValue = cancelReason.value.trim();
-        
+
         // Валидация
         if (newStatusValue === 'cancelled' && !cancelReasonValue) {
             alert('Укажите причину отмены');
             return;
         }
-        
+
         // Обновляем статус заявки
         request.status = newStatusValue;
-        
+
         // Если отмена - сохраняем причину
         if (newStatusValue === 'cancelled') {
             request.cancelReason = cancelReasonValue;
         }
-        
+
         // В реальном приложении здесь был бы запрос к API
-        
+
         // Закрываем модальное окно и обновляем список
         closeStatusModal();
         loadRequests();
-        
+
         alert('Статус заявки успешно обновлен');
     }
 

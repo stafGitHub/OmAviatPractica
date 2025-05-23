@@ -102,13 +102,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Функция отправки заявки
     function submitOrder(orderData) {
-        // Здесь должна быть реализация отправки данных на сервер
-        // Например, с помощью fetch API
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
 
-        // Пример отправки на сервер:
         /*
+            Эндпоинт: /api/orders (POST)
+            Ответ от сервера выглядит как:
+            {
+                "success": boolean;
+                "message": "сообщение на случай пиздеца"
+            }
+         */
         fetch('/api/orders', {
             method: 'POST',
             headers: {
@@ -116,25 +121,23 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify(orderData)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
-                showMessage('Заявка успешно отправлена!', 'success');
+                alert('Заявка успешно отправлена!');
                 form.reset();
                 otherServiceGroup.style.display = 'none';
             } else {
-                showMessage('Ошибка при отправке заявки: ' + data.message, 'error');
+                alert('Ошибка при отправке заявки: ' + data.message);
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            showMessage('Произошла ошибка при отправке заявки', 'error');
-        });
-        */
-
-        // Для демонстрации просто показываем сообщение
-        alert('Заявка успешно отправлена!');
-        form.reset();
-        otherServiceGroup.style.display = 'none';
+            alert('Произошла ошибка при отправке заявки');
+        })
+            .finally(() => submitButton.disabled = false);
     }
 });
