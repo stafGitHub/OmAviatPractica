@@ -20,20 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalRequestId = document.getElementById("modalRequestId");
     const currentStatus = document.getElementById("currentStatus");
 
-    /*  Эндпоинт: /api/orders, НО ТУТ ЧЕРЕЗ GET
-        Данные имеют такой вид:
-        массив этих хуюмпол
-        {
-            id: number,
-            fio: string,
-            phone: string,
-            service: string,
-            date: datetime,
-            status: string, (можно ебануть через многие-ко-многим и таблицу status)
-            address: string,
-            description: string    
-        }
-    */
     let requests = [];
     let exampleRequests = [
         {
@@ -67,23 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
             description: "Плановая уборка ковров и мебели",
         },
     ];
-
-    // fetch("api/orders", {
-    //     method: "GET",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    // })
-    //     .then((response) => {
-    //         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-    //         return response.json();
-    //     })
-    //     .then((data) => {
-    //         requests = data;
-    //     })
-    //     .catch((error) => {
-    //         console.error("Error:", error);
-    //     });
 
     // УБЕРИ НАХУЙ ПОТОМ
     requests = exampleRequests;
@@ -124,6 +93,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Загрузка списка заявок
     function loadRequests() {
+        /*  Эндпоинт: /api/orders, НО ТУТ ЧЕРЕЗ GET
+        Данные имеют такой вид:
+        массив этих хуюмпол
+        {
+            id: number,
+            fio: string,
+            phone: string,
+            service: string,
+            date: datetime,
+            status: string, (можно ебануть через многие-ко-многим и таблицу status)
+            address: string,
+            description: string    
+        }
+    */
         fetch("api/orders", {
             method: "GET",
             headers: {
