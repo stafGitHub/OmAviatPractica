@@ -7,25 +7,8 @@
     <link href="../../public/css/admin.css" rel="stylesheet">
 </head>
 <body>
-<!-- Форма входа -->
-<div class="login-container" id="loginForm">
-    <div class="login-box">
-        <h1>Вход в панель администратора</h1>
-        <div class="form-group">
-            <label for="adminLogin">Логин:</label>
-            <input id="adminLogin" required type="text">
-        </div>
-        <div class="form-group">
-            <label for="adminPassword">Пароль:</label>
-            <input id="adminPassword" required type="password">
-        </div>
-        <button class="btn" id="loginBtn">Войти</button>
-        <div class="error-message" id="loginError"></div>
-    </div>
-</div>
-
 <!-- Основной интерфейс администратора (скрыт до входа) -->
-<div class="hidden" id="adminPanel">
+<div id="adminPanel">
     <header class="admin-header">
         <h1>Панель администратора</h1>
         <button class="btn logout-btn" id="logoutBtn">Выйти</button>
