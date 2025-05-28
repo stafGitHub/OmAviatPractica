@@ -149,7 +149,7 @@ function setupLoginForm(formId) {
       alert('Вы вошли как админ');
       updateAdminPanelVisibility();
       // Можно перенаправить или оставить на текущей странице
-      // window.location.href = 'main.html'; // раскомментировать при необходимости
+      // window.location.href = 'index.html'; // раскомментировать при необходимости
     } else {
       alert('Неверный логин или пароль');
     }
