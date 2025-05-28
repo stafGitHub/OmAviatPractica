@@ -27,4 +27,10 @@ public class MainController {
         modelAndView.setViewName("authorization");
         return modelAndView;
     }
+
+    @GetMapping("adminpanel")
+    public ModelAndView adminPanelRegistration(ModelAndView modelAndView) {
+        modelAndView.setViewName("adminPanelRegistration");
+        return modelAndView;
+    }
 }
