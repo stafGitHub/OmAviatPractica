@@ -84,8 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Регистрация пользователя:', userData);
         
         // Пример отправки на сервер:
-        /*
-        fetch('/api/register', {
+
+        fetch('/mineIsNotMyself/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
             alert('Произошла ошибка при регистрации');
         });
-        */
+
         
         // Для демонстрации просто показываем сообщение
         alert('Регистрация успешна!\n(в реальном приложении данные были бы отправлены на сервер)');
