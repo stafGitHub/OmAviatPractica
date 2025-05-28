@@ -28,7 +28,7 @@ public class MainController {
         return modelAndView;
     }
 
-    @GetMapping("adminpanel")
+    @GetMapping("adminPanel")
     public ModelAndView adminPanelRegistration(ModelAndView modelAndView) {
         modelAndView.setViewName("adminPanelRegistration");
         return modelAndView;
