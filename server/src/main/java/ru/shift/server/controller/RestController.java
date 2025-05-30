@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.shift.server.database.entity.user.User;
 import ru.shift.server.database.entity.user.UserRole;
 import ru.shift.server.dto.request.LoginRequest;
 import ru.shift.server.dto.request.OrderRequest;
@@ -33,7 +32,7 @@ public class RestController {
         cookie.setPath("/");
         cookie.setMaxAge(60 * 60 * 24 * 7 * 7);
 
-        var saved = userServices.saveUserToDatabase(registerRequest , userJwtInfo);
+        var saved = userServices.saveUserToDatabase(registerRequest, userJwtInfo);
         if (saved) {
             httpServletResponse.addCookie(cookie);
             return RegisterResponse.builder()
@@ -58,15 +57,23 @@ public class RestController {
     }
 
     @PostMapping("/login")
-    public LoginResponse login(@RequestBody LoginRequest loginRequest) {
+    public LoginResponse login(@RequestBody LoginRequest loginRequest, HttpServletResponse httpServletResponse) {
         try {
             var user = userServices.getUser(loginRequest);
             boolean isAdmin = user.getRole() == UserRole.ADMIN;
+
+            var cookie = new Cookie("token", user.getToken());
+            cookie.setPath("/");
+            cookie.setMaxAge(60 * 60 * 24 * 7 * 7);
+
+            httpServletResponse.addCookie(cookie);
+
             return LoginResponse.builder()
-                    .success(isAdmin)
+                    .success(true)
+                    .isAdmin(isAdmin)
                     .token(user.getToken())
                     .build();
-        }catch (UserNotFound e){
+        } catch (UserNotFound e) {
             return LoginResponse.builder()
                     .success(false)
                     .message(e.getMessage())

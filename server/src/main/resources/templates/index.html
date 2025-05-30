@@ -11,7 +11,7 @@
     <h1><img alt="Логотип компании" src="/jpg/logo.png"><span class="underline">Мой Не Сам</span></h1>
     <button class="button" th:if="${!userJwtInfo.flag}" th:text="Авторизация" onclick="window.location.href='/mineIsNotMyself/authorization'"></button>
     <div class="auth-button" th:if="${userJwtInfo.flag}" th:text="${userJwtInfo.fullName}"><button></button></div>
-    <div class="admin-panel-button" id="adminPanelButton"><button onclick="window.location.href='adminpanel.html'">Войти в панель админа</button></div>
+    <div class="admin-panel-button" id="adminPanelButton"><button onclick="window.location.href='/mineIsNotMyself/admin'">Войти в панель админа</button></div>
 <!--    <div class="profile-button" id="profileButton"><button onclick="window.location.href='user/profile.html'">Профиль</button></div>
 -->
 </header>

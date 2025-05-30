@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     localStorage.setItem("isAdminLoggedIn", "true");
                 }
                 localStorage.setItem("authToken", data.token);
-                window.location.href = "../index.html";
+                window.location.href = "/mineIsNotMyself";
             })
             .catch((error) => {
                 console.error("Error:", error);

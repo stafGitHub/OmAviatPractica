@@ -59,7 +59,7 @@ public class UserServices {
     public User getUser(LoginRequest loginRequest) throws UserNotFound {
         User user = userRepository.getUserByLoginAndPassword(loginRequest.username(), loginRequest.password());
         if (user == null) {
-            throw new UserNotFound("Пользователь с таким именем и паролем не найден");
+            throw new UserNotFound("User with this name and password not found");
         }
         return user;
     }
