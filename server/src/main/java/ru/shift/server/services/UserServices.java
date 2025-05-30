@@ -2,13 +2,12 @@ package ru.shift.server.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.shift.server.database.entity.User;
-import ru.shift.server.database.entity.UserRole;
+import ru.shift.server.database.entity.user.User;
+import ru.shift.server.database.entity.user.UserRole;
 import ru.shift.server.database.repository.UserRepository;
 import ru.shift.server.database.validation.Validation;
 import ru.shift.server.dto.request.RegisterRequest;
 import ru.shift.server.security.jwt.JwtTokenUtil;
-import ru.shift.server.security.jwt.UserJwtInfo;
 
 import java.util.List;
 

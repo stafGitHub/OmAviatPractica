@@ -4,7 +4,7 @@ import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-import ru.shift.server.database.entity.UserRole;
+import ru.shift.server.database.entity.user.UserRole;
 import ru.shift.server.security.jwt.JwtTokenUtil;
 import ru.shift.server.security.jwt.UserJwtInfo;
 

@@ -5,7 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import ru.shift.server.database.entity.UserRole;
+import ru.shift.server.database.entity.user.UserRole;
 import ru.shift.server.dto.request.RegisterRequest;
 
 import java.time.Duration;

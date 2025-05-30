@@ -1,4 +1,4 @@
-package ru.shift.server.database.entity;
+package ru.shift.server.database.entity.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

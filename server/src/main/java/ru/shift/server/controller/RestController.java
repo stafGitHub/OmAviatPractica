@@ -6,26 +6,30 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import ru.shift.server.database.entity.UserRole;
+import ru.shift.server.database.entity.user.UserRole;
+import ru.shift.server.dto.request.OrderRequest;
 import ru.shift.server.dto.request.RegisterRequest;
+import ru.shift.server.dto.response.OrderResponse;
 import ru.shift.server.dto.response.RegisterResponse;
+import ru.shift.server.services.OrderService;
 import ru.shift.server.services.UserServices;
 
-@RestController
+@org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
-public class AuthController {
+public class RestController {
     private final UserServices userServices;
+    public final OrderService orderService;
 
     @PostMapping(value = "/register")
-    public RegisterResponse registerEndpoint(@RequestBody RegisterRequest registerRequest, HttpServletResponse httpServletResponse) {
+    public RegisterResponse registerEndpoint(@RequestBody RegisterRequest registerRequest,
+                                             HttpServletResponse httpServletResponse) {
         var saved = userServices.saveUserToDatabase(registerRequest);
         if (saved) {
             var userJwtInfo = userServices.getUserJwtInfo(registerRequest, UserRole.USER);
             var cookie = new Cookie("token", userJwtInfo);
             cookie.setPath("/");
-            cookie.setMaxAge(60*60*24*7*7);
+            cookie.setMaxAge(60 * 60 * 24 * 7 * 7);
 
             httpServletResponse.addCookie(cookie);
             return RegisterResponse.builder()
@@ -38,5 +42,14 @@ public class AuthController {
                     .message("Email or Login already exists")
                     .build();
         }
+    }
+
+    @PostMapping("/order")
+    public OrderResponse orderEndpoint(@RequestBody OrderRequest orderRequest) {
+        orderService.saveOrder(orderRequest);
+
+        return OrderResponse.builder()
+                .success(true)
+                .build();
     }
 }

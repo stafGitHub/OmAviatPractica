@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 "message": "сообщение на случай пиздеца"
             }
          */
-        fetch('/api/orders', {
+        fetch('/api/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
