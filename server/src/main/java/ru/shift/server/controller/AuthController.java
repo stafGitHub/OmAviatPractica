@@ -1,27 +1,42 @@
 package ru.shift.server.controller;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.shift.server.dto.request.RequestRegister;
+import ru.shift.server.database.entity.UserRole;
+import ru.shift.server.dto.request.RegisterRequest;
+import ru.shift.server.dto.response.RegisterResponse;
 import ru.shift.server.services.UserServices;
 
 @RestController
-@RequestMapping("/mineIsNotMyself")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class AuthController {
     private final UserServices userServices;
 
-    @GetMapping("/register")
-    public HttpStatus registerEndpoint(RequestRegister requestRegister, HttpServletResponse response) {
-        var saved = userServices.saveUserToDatabase(requestRegister);
+    @PostMapping(value = "/register")
+    public RegisterResponse registerEndpoint(@RequestBody RegisterRequest registerRequest, HttpServletResponse httpServletResponse) {
+        var saved = userServices.saveUserToDatabase(registerRequest);
         if (saved) {
-            return HttpStatus.OK;
+            var userJwtInfo = userServices.getUserJwtInfo(registerRequest, UserRole.USER);
+            var cookie = new Cookie("token", userJwtInfo);
+            cookie.setPath("/");
+            cookie.setMaxAge(60*60*24*7*7);
+
+            httpServletResponse.addCookie(cookie);
+            return RegisterResponse.builder()
+                    .success(true)
+                    .token(userJwtInfo)
+                    .build();
         } else {
-            return HttpStatus.BAD_REQUEST;
+            return RegisterResponse.builder()
+                    .success(false)
+                    .message("Email or Login already exists")
+                    .build();
         }
     }
 }

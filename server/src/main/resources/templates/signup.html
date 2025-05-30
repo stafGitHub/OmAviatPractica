@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Регистрация</title>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Регистрация</h1>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="login">Логин*</label>
+            <input id="login" name="login" required type="text">
+            <div class="error" id="loginError"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Пароль* (минимум 6 символов)</label>
+            <input id="password" name="password" required type="password">
+            <div class="error" id="passwordError"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="fullName">ФИО* (кириллица и пробелы)</label>
+            <input id="fullName" name="fullName" required type="text">
+            <div class="error" id="fullNameError"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Телефон* (+7(XXX)-XXX-XX-XX)</label>
+            <input id="phone" name="phone" required type="tel">
+            <div class="error" id="phoneError"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email*</label>
+            <input id="email" name="email" required type="email">
+            <div class="error" id="emailError"></div>
+        </div>
+
+        <button class="btn" type="submit">Зарегистрироваться</button>
+    </form>
+</div>
+
+<script src="/js/scriptreg.js"></script>
+
+</body>
+</html>

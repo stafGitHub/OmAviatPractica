@@ -1,0 +1,148 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 60px;
+}
+
+.auth-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #0056b3;
+}
+
+.admin-panel-button {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    display: none; /* по умолчанию скрыт */
+}
+
+.profile-button {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    display: none; /* по умолчанию скрыт */
+}
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    margin-left: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+header img {
+    width: 120px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container {
+    width: calc(33% - 20px);
+    margin-bottom: 40px;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: white;
+}
+
+.container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.container h2 {
+    margin-top: 10px;
+}
+
+.container p {
+    margin-top: 10px;
+}
+
+.separator {
+    width: calc(100%);
+    height: 2px;
+    background-color: rgb(185, 185, 185);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    border: 1px solid #4CAF50;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.contact-info h3 {
+    color: #4CAF50;
+}
+
+.contact-info p {
+    font-size: 16px;
+    line-height: 1.5;
+}

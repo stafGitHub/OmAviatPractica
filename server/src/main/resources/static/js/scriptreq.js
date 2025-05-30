@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Элементы интерфейса
     const historyTab = document.getElementById('historyTab');
     const newTab = document.getElementById('newTab');
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupEventListeners() {
         // Переключение вкладок
         tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const tabId = this.getAttribute('data-tab');
                 switchTab(tabId);
             });
@@ -74,20 +74,20 @@ document.addEventListener('DOMContentLoaded', function() {
         statusFilter.addEventListener('change', loadRequests);
 
         // Отправка формы новой заявки
-        requestForm.addEventListener('submit', function(e) {
+        requestForm.addEventListener('submit', function (e) {
             e.preventDefault();
             submitNewRequest();
         });
 
         // Выход из системы
-        logoutBtn.addEventListener('click', function() {
+        logoutBtn.addEventListener('click', function () {
             // В реальном приложении здесь был бы запрос на сервер для выхода
             window.location.href = 'login.html';
         });
 
         // Закрытие модального окна
         closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) {
+        modal.addEventListener('click', function (e) {
             if (e.target === modal) {
                 closeModal();
             }
@@ -110,10 +110,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Загрузка списка заявок
     function loadRequests() {
         const status = statusFilter.value;
-        
+
         // Фильтрация заявок
         let filteredRequests = requests.filter(request => request.userId === currentUser.id);
-        
+
         if (status !== 'all') {
             filteredRequests = filteredRequests.filter(request => request.status === status);
         }
@@ -133,24 +133,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const requestCard = document.createElement('div');
             requestCard.className = 'request-card';
             requestCard.setAttribute('data-id', request.id);
-            
+
             const typeMap = {
                 repair: 'Ремонт',
                 cleaning: 'Уборка',
                 delivery: 'Доставка',
                 other: 'Другое'
             };
-            
+
             const statusMap = {
-                new: { text: 'Новая', class: 'status-new' },
-                in_progress: { text: 'В работе', class: 'status-in_progress' },
-                completed: { text: 'Завершена', class: 'status-completed' },
-                cancelled: { text: 'Отменена', class: 'status-cancelled' }
+                new: {text: 'Новая', class: 'status-new'},
+                in_progress: {text: 'В работе', class: 'status-in_progress'},
+                completed: {text: 'Завершена', class: 'status-completed'},
+                cancelled: {text: 'Отменена', class: 'status-cancelled'}
             };
-            
+
             const createdAt = new Date(request.createdAt).toLocaleString('ru-RU');
             const desiredDate = request.desiredDate ? new Date(request.desiredDate).toLocaleDateString('ru-RU') : 'Не указана';
-            
+
             requestCard.innerHTML = ` 
                 <h3>${typeMap[request.type] || 'Заявка'} #${request.id}</h3>
                 <div class="request-meta">
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span>Приоритет: ${request.priority === 'high' ? 'Высокий' : request.priority === 'medium' ? 'Средний' : 'Низкий'}</span>
                 </div>
             `;
-            
+
             requestCard.addEventListener('click', () => openRequestDetails(request.id));
             requestsList.appendChild(requestCard);
         });
@@ -175,33 +175,33 @@ document.addEventListener('DOMContentLoaded', function() {
     function openRequestDetails(requestId) {
         const request = requests.find(r => r.id === requestId);
         if (!request) return;
-        
+
         const typeMap = {
             repair: 'Ремонт',
             cleaning: 'Уборка',
             delivery: 'Доставка',
             other: 'Другое'
         };
-        
+
         const statusMap = {
             new: 'Новая',
             in_progress: 'В работе',
             completed: 'Завершена',
             cancelled: 'Отменена'
         };
-        
+
         const priorityMap = {
             high: 'Высокий',
             medium: 'Средний',
             low: 'Низкий'
         };
-        
+
         const createdAt = new Date(request.createdAt).toLocaleString('ru-RU');
         const desiredDate = request.desiredDate ? new Date(request.desiredDate).toLocaleDateString('ru-RU') : 'Не указана';
         const completedAt = request.completedAt ? new Date(request.completedAt).toLocaleString('ru-RU') : 'Не завершена';
-        
+
         document.getElementById('modalTitle').textContent = `${typeMap[request.type] || 'Заявка'} #${request.id}`;
-        
+
         document.getElementById('modalBody').innerHTML = `
             <div class="modal-field">
                 <strong>Статус:</strong> ${statusMap[request.status]}
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
+
         // Показываем/скрываем кнопку отмены в зависимости от статуса
         if (request.status === 'new' || request.status === 'in_progress') {
             cancelRequestBtn.style.display = 'block';
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             cancelRequestBtn.style.display = 'none';
         }
-        
+
         openModal();
     }
 
@@ -246,13 +246,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const description = document.getElementById('requestDescription').value.trim();
         const priority = document.getElementById('requestPriority').value;
         const desiredDate = document.getElementById('requestDate').value;
-        
+
         // Валидация
         if (!type || !description) {
             alert('Пожалуйста, заполните все обязательные поля');
             return;
         }
-        
+
         // Создаем новую заявку
         const newRequest = {
             id: requests.length > 0 ? Math.max(...requests.map(r => r.id)) + 1 : 1,
@@ -264,16 +264,16 @@ document.addEventListener('DOMContentLoaded', function() {
             createdAt: new Date().toISOString(),
             desiredDate: desiredDate || null
         };
-        
+
         // В реальном приложении здесь был бы запрос к API
         requests.unshift(newRequest);
-        
+
         // Очищаем форму
         requestForm.reset();
-        
+
         // Показываем уведомление
         alert('Заявка успешно создана!');
-        
+
         // Переключаемся на вкладку истории и обновляем список
         switchTab('history');
         loadRequests();
@@ -283,14 +283,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function cancelCurrentRequest() {
         const requestId = parseInt(cancelRequestBtn.getAttribute('data-id'));
         const requestIndex = requests.findIndex(r => r.id === requestId);
-        
+
         if (requestIndex === -1) return;
-        
+
         if (confirm('Вы уверены, что хотите отменить эту заявку?')) {
             // В реальном приложении здесь был бы запрос к API
             requests[requestIndex].status = 'cancelled';
             requests[requestIndex].completedAt = new Date().toISOString();
-            
+
             // Закрываем модальное окно и обновляем список
             closeModal();
             loadRequests();
@@ -307,10 +307,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeModal() {
         modal.classList.add('hidden');
         document.body.style.overflow = 'auto';
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
                 closeModal();
-            }});
+            }
+        });
     }
 
     // Инициализация приложения

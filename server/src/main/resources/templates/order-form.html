@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Форма заявки на услуги</title>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Форма заявки на услуги</h1>
+    <form id="orderForm">
+        <!-- Контактные данные -->
+        <div class="form-section">
+            <h2>Контактные данные</h2>
+
+            <div class="form-group">
+                <label for="address">Адрес*</label>
+                <input id="address" name="address" required type="text">
+                <div class="error" id="addressError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Телефон* (+7(XXX)-XXX-XX-XX)</label>
+                <input id="phone" name="phone" required type="tel">
+                <div class="error" id="phoneError"></div>
+            </div>
+        </div>
+
+        <!-- Дата и время -->
+        <div class="form-section">
+            <h2>Дата и время</h2>
+
+            <div class="form-group">
+                <label for="date">Желаемая дата*</label>
+                <input id="date" name="date" required type="date">
+                <div class="error" id="dateError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Желаемое время*</label>
+                <input id="time" name="time" required type="time">
+                <div class="error" id="timeError"></div>
+            </div>
+        </div>
+
+        <!-- Вид услуги -->
+        <div class="form-section">
+            <h2>Вид услуги*</h2>
+
+            <div class="form-group radio-group">
+                <label>
+                    <input name="service" required type="radio" value="Общий клининг"> Общий клининг
+                </label>
+                <label>
+                    <input name="service" type="radio" value="Генеральная уборка"> Генеральная уборка
+                </label>
+                <label>
+                    <input name="service" type="radio" value="Послестроительная уборка"> Послестроительная уборка
+                </label>
+                <label>
+                    <input name="service" type="radio" value="Химчистка ковров и мебели"> Химчистка ковров и мебели
+                </label>
+                <label>
+                    <input id="otherService" name="service" type="radio" value="other"> Иная услуга
+                </label>
+            </div>
+
+            <div class="form-group" id="otherServiceGroup" style="display: none;">
+                <label for="otherServiceText">Опишите вашу услугу*</label>
+                <textarea id="otherServiceText" name="otherServiceText" rows="3"></textarea>
+                <div class="error" id="otherServiceError"></div>
+            </div>
+            <div class="error" id="serviceError"></div>
+        </div>
+
+        <!-- Способ оплаты -->
+        <div class="form-section">
+            <h2>Способ оплаты*</h2>
+
+            <div class="form-group radio-group">
+                <label>
+                    <input name="payment" required type="radio" value="Наличные"> Наличные
+                </label>
+                <label>
+                    <input name="payment" type="radio" value="Банковская карта"> Банковская карта
+                </label>
+            </div>
+            <div class="error" id="paymentError"></div>
+        </div>
+
+        <button class="btn" type="submit">Отправить заявку</button>
+    </form>
+</div>
+
+<script src="/js/order-form.js"></script>
+</body>
+</html>

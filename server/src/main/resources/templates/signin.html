@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Вход в систему</title>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Вход в систему</h1>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username">Логин</label>
+            <input id="username" name="username" required type="text">
+            <div class="error" id="usernameError"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input id="password" name="password" required type="password">
+            <div class="error" id="passwordError"></div>
+        </div>
+
+        <button class="btn" type="submit">Войти</button>
+
+        <div class="links">
+            <a href="/mineIsNotMyself/registration">Зарегистрироваться</a>
+
+        </div>
+    </form>
+</div>
+
+<script src="/js/scriptauth.js"></script>
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .admin-section {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f0f0f0;
+    }
+</style>
+</body>
+</html>

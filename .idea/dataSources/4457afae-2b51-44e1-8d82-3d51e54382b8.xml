@@ -3,9 +3,17 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>762</IntrospectionStateNumber>
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G</Grants>
+      <IntrospectionStateNumber>773</IntrospectionStateNumber>
       <ServerVersion>17.2</ServerVersion>
-      <StartupTime>1748440500</StartupTime>
+      <StartupTime>1748612131</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1400,7 +1408,7 @@ true posixrules
 13219||10|C|G
 13219||-9223372036854775808|U|G
 13219||10|U|G</Grants>
-      <IntrospectionStateNumber>762</IntrospectionStateNumber>
+      <IntrospectionStateNumber>773</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4822,8 +4830,8 @@ true posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>762</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-05-28.19:08:30</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>773</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-05-30.18:18:38</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4838,7 +4846,7 @@ true posixrules
     </sequence>
     <table id="266" parent="264" name="users">
       <ObjectId>16403</ObjectId>
-      <StateNumber>761</StateNumber>
+      <StateNumber>772</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4892,7 +4900,7 @@ true posixrules
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16409</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>761</StateNumber>
+      <StateNumber>772</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>

@@ -1,0 +1,6 @@
+{
+  "timestamp": "2025-05-30T14:31:09.382+00:00",
+  "status": 403,
+  "error": "Forbidden",
+  "path": "/api/register"
+}

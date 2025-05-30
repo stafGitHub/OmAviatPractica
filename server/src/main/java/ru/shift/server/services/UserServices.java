@@ -6,7 +6,9 @@ import ru.shift.server.database.entity.User;
 import ru.shift.server.database.entity.UserRole;
 import ru.shift.server.database.repository.UserRepository;
 import ru.shift.server.database.validation.Validation;
-import ru.shift.server.dto.request.RequestRegister;
+import ru.shift.server.dto.request.RegisterRequest;
+import ru.shift.server.security.jwt.JwtTokenUtil;
+import ru.shift.server.security.jwt.UserJwtInfo;
 
 import java.util.List;
 
@@ -15,36 +17,39 @@ import java.util.List;
 public class UserServices {
     private final UserRepository userRepository;
     private final List<Validation> validations;
+    private final JwtTokenUtil jwtTokenUtil;
 
-    public boolean saveUserToDatabase(RequestRegister requestRegister) {
-        var validated = validateUser(requestRegister);
+    public boolean saveUserToDatabase(RegisterRequest registerRequest) {
+        var validated = validateUser(registerRequest);
 
         if (validated) {
-            userRepository.save(mapUserFromRequestRegister(requestRegister));
+            userRepository.save(mapUserFromRequestRegister(registerRequest));
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-    private User mapUserFromRequestRegister(RequestRegister requestRegister) {
-        var build = User.builder()
-                .fullName(requestRegister.fullName())
-                .phone(requestRegister.phone())
-                .mail(requestRegister.email())
-                .login(requestRegister.login())
-                .password(requestRegister.password())
+    private User mapUserFromRequestRegister(RegisterRequest registerRequest) {
+        return User.builder()
+                .fullName(registerRequest.fullName())
+                .phone(registerRequest.phone())
+                .mail(registerRequest.email())
+                .login(registerRequest.login())
+                .password(registerRequest.password())
                 .role(UserRole.USER)
                 .build();
-
-        return build;
     }
 
-    private boolean validateUser(RequestRegister requestRegister) {
+    private boolean validateUser(RegisterRequest registerRequest) {
         boolean valid = false;
         for (Validation validation : validations) {
-            valid = validation.validate(requestRegister);
+            valid = validation.validate(registerRequest);
         }
         return valid;
+    }
+
+    public String getUserJwtInfo(RegisterRequest registerRequest , UserRole userRole) {
+        return jwtTokenUtil.generateToken(registerRequest , userRole);
     }
 }

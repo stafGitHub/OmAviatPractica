@@ -1,5 +1,4 @@
 spring.application.name: serverOat
-
 spring:
   mvc:
     view:
@@ -10,3 +9,8 @@ spring:
     username: postgres
     password: pass
     driver-class-name: org.postgresql.Driver
+server:
+  port: 8080
+jwt:
+  secret: b332b4c3631edee13cfb25a504da3d06087079121f46fe645c66372664cbabc3
+  lifetime: 200000m
