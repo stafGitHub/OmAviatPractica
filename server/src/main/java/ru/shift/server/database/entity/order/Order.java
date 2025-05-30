@@ -26,9 +26,7 @@ public class Order {
     @Column(name = "desired_time")
     private String time;
     @Column(name = "type_of_service")
-    @Enumerated(EnumType.STRING)
-    private TypeOfService typeOfService;
+    private String typeOfService;
     @Column(name = "payment_method")
-    @Enumerated(EnumType.STRING)
-    private PaymentMethod paymentMethod;
+    private String paymentMethod;
 }

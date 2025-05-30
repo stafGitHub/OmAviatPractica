@@ -3,8 +3,6 @@ package ru.shift.server.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.shift.server.database.entity.order.Order;
-import ru.shift.server.database.entity.order.PaymentMethod;
-import ru.shift.server.database.entity.order.TypeOfService;
 import ru.shift.server.database.repository.OrderRepository;
 import ru.shift.server.dto.request.OrderRequest;
 
@@ -21,9 +19,9 @@ public class OrderService {
         return Order.builder()
                 .address(orderRequest.address())
                 .time(orderRequest.time())
-                .paymentMethod(PaymentMethod.valueOf(orderRequest.payment()))
+                .paymentMethod(orderRequest.payment())
                 .date(orderRequest.date())
-                .typeOfService(TypeOfService.valueOf(orderRequest.service()))
+                .typeOfService((orderRequest.service()))
                 .build();
     }
 }
