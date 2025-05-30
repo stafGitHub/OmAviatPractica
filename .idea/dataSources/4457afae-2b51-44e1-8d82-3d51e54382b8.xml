@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>762</IntrospectionStateNumber>
+      <IntrospectionStateNumber>790</IntrospectionStateNumber>
       <ServerVersion>17.2</ServerVersion>
-      <StartupTime>1748440500</StartupTime>
+      <StartupTime>1748612131</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1400,7 +1400,7 @@ true posixrules
 13219||10|C|G
 13219||-9223372036854775808|U|G
 13219||10|U|G</Grants>
-      <IntrospectionStateNumber>762</IntrospectionStateNumber>
+      <IntrospectionStateNumber>790</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4822,13 +4822,21 @@ true posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>762</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-05-28.19:08:30</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>790</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-05-30.20:21:27</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <sequence id="265" parent="264" name="users_id_seq">
+    <sequence id="265" parent="264" name="orders_id_seq">
+      <ObjectId>16415</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>776</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="266" parent="264" name="users_id_seq">
       <ObjectId>16402</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4836,13 +4844,92 @@ true posixrules
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="266" parent="264" name="users">
-      <ObjectId>16403</ObjectId>
-      <StateNumber>761</StateNumber>
+    <table id="267" parent="264" name="orders">
+      <ObjectId>16416</ObjectId>
+      <StateNumber>789</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="267" parent="266" name="id">
+    <table id="268" parent="264" name="users">
+      <ObjectId>16403</ObjectId>
+      <StateNumber>781</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="269" parent="267" name="id">
+      <DefaultExpression>nextval(&apos;orders_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>776</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>16415</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="270" parent="267" name="address">
+      <Position>2</Position>
+      <StateNumber>776</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="271" parent="267" name="number">
+      <Position>3</Position>
+      <StateNumber>776</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="272" parent="267" name="desired_date">
+      <Position>4</Position>
+      <StateNumber>776</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="273" parent="267" name="desired_time">
+      <Position>5</Position>
+      <StateNumber>776</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="274" parent="267" name="type_of_service">
+      <Position>6</Position>
+      <StateNumber>776</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="275" parent="267" name="payment_method">
+      <Position>7</Position>
+      <StateNumber>776</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="276" parent="267" name="full_name">
+      <Position>8</Position>
+      <StateNumber>787</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="277" parent="267" name="status">
+      <Position>9</Position>
+      <StateNumber>789</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="278" parent="267" name="orders_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16422</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>776</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="279" parent="267" name="orders_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16423</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>776</StateNumber>
+      <UnderlyingIndexId>16422</UnderlyingIndexId>
+    </key>
+    <column id="280" parent="268" name="id">
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4851,52 +4938,58 @@ true posixrules
       <SequenceId>16402</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="268" parent="266" name="full_name">
+    <column id="281" parent="268" name="full_name">
       <Position>2</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="269" parent="266" name="mail">
+    <column id="282" parent="268" name="mail">
       <Position>3</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="270" parent="266" name="phone">
+    <column id="283" parent="268" name="phone">
       <Position>4</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="271" parent="266" name="login">
+    <column id="284" parent="268" name="login">
       <Position>5</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="272" parent="266" name="password">
+    <column id="285" parent="268" name="password">
       <Position>6</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="273" parent="266" name="role">
+    <column id="286" parent="268" name="role">
       <Position>7</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="274" parent="266" name="users_pkey">
+    <column id="287" parent="268" name="token">
+      <Position>8</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="288" parent="268" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16409</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>761</StateNumber>
+      <StateNumber>781</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="275" parent="266" name="users_pkey">
+    <key id="289" parent="268" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16410</ObjectId>
       <Primary>1</Primary>

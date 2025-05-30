@@ -1,4 +1,4 @@
-package ru.shift.server.database.entity;
+package ru.shift.server.database.entity.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,4 +30,6 @@ public class User {
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
+    @Column(name = "token")
+    private String token;
 }

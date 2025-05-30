@@ -1,0 +1,39 @@
+POST http://localhost:8080/api/register
+Content-Type: application/json
+Content-Length: 130
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=29E93F01054259DEDD2DA857720C0F1E
+
+{
+  "fullName": "asdasdas",
+  "phone": "asdasasd",
+  "email": "asdasdas",
+  "login": "asdasdsd",
+  "password": "sssssssssssssss"
+}
+
+<> 2025-05-30T203135.403.json
+
+###
+
+POST http://localhost:8080/api/register
+Content-Type: application/json
+Content-Length: 83
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "fullName": "",
+  "phone": "",
+  "email": "",
+  "login": "",
+  "password": ""
+}
+
+<> 2025-05-30T203109.403.json
+
+###
+

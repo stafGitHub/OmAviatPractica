@@ -2,11 +2,14 @@ package ru.shift.server.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.shift.server.database.entity.User;
-import ru.shift.server.database.entity.UserRole;
+import ru.shift.server.database.entity.user.User;
+import ru.shift.server.database.entity.user.UserRole;
 import ru.shift.server.database.repository.UserRepository;
 import ru.shift.server.database.validation.Validation;
-import ru.shift.server.dto.request.RequestRegister;
+import ru.shift.server.dto.request.LoginRequest;
+import ru.shift.server.dto.request.RegisterRequest;
+import ru.shift.server.exception.UserNotFound;
+import ru.shift.server.security.jwt.JwtTokenUtil;
 
 import java.util.List;
 
@@ -15,36 +18,49 @@ import java.util.List;
 public class UserServices {
     private final UserRepository userRepository;
     private final List<Validation> validations;
+    private final JwtTokenUtil jwtTokenUtil;
 
-    public boolean saveUserToDatabase(RequestRegister requestRegister) {
-        var validated = validateUser(requestRegister);
+    public boolean saveUserToDatabase(RegisterRequest registerRequest , String token) {
+        var validated = validateUser(registerRequest);
 
         if (validated) {
-            userRepository.save(mapUserFromRequestRegister(requestRegister));
+            userRepository.save(mapUserFromRequestRegister(registerRequest , token));
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-    private User mapUserFromRequestRegister(RequestRegister requestRegister) {
-        var build = User.builder()
-                .fullName(requestRegister.fullName())
-                .phone(requestRegister.phone())
-                .mail(requestRegister.email())
-                .login(requestRegister.login())
-                .password(requestRegister.password())
+    private User mapUserFromRequestRegister(RegisterRequest registerRequest , String token) {
+        return User.builder()
+                .fullName(registerRequest.fullName())
+                .phone(registerRequest.phone())
+                .mail(registerRequest.email())
+                .login(registerRequest.login())
+                .password(registerRequest.password())
+                .token(token)
                 .role(UserRole.USER)
-                .build();
 
-        return build;
+                .build();
     }
 
-    private boolean validateUser(RequestRegister requestRegister) {
+    private boolean validateUser(RegisterRequest registerRequest) {
         boolean valid = false;
         for (Validation validation : validations) {
-            valid = validation.validate(requestRegister);
+            valid = validation.validate(registerRequest);
         }
         return valid;
+    }
+
+    public String getUserJwtInfo(RegisterRequest registerRequest, UserRole userRole) {
+        return jwtTokenUtil.generateToken(registerRequest, userRole);
+    }
+
+    public User getUser(LoginRequest loginRequest) throws UserNotFound {
+        User user = userRepository.getUserByLoginAndPassword(loginRequest.username(), loginRequest.password());
+        if (user == null) {
+            throw new UserNotFound("User with this name and password not found");
+        }
+        return user;
     }
 }
