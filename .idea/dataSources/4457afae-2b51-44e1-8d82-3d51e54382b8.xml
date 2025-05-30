@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>782</IntrospectionStateNumber>
+      <IntrospectionStateNumber>790</IntrospectionStateNumber>
       <ServerVersion>17.2</ServerVersion>
       <StartupTime>1748612131</StartupTime>
       <TimeZones>true ACDT
@@ -1400,7 +1400,7 @@ true posixrules
 13219||10|C|G
 13219||-9223372036854775808|U|G
 13219||10|U|G</Grants>
-      <IntrospectionStateNumber>782</IntrospectionStateNumber>
+      <IntrospectionStateNumber>790</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4822,8 +4822,8 @@ true posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>782</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-05-30.19:20:17</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>790</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-05-30.20:21:27</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4846,7 +4846,7 @@ true posixrules
     </sequence>
     <table id="267" parent="264" name="orders">
       <ObjectId>16416</ObjectId>
-      <StateNumber>776</StateNumber>
+      <StateNumber>789</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4901,7 +4901,19 @@ true posixrules
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="276" parent="267" name="orders_pkey">
+    <column id="276" parent="267" name="full_name">
+      <Position>8</Position>
+      <StateNumber>787</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="277" parent="267" name="status">
+      <Position>9</Position>
+      <StateNumber>789</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="278" parent="267" name="orders_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16422</ObjectId>
@@ -4910,14 +4922,14 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="277" parent="267" name="orders_pkey">
+    <key id="279" parent="267" name="orders_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16423</ObjectId>
       <Primary>1</Primary>
       <StateNumber>776</StateNumber>
       <UnderlyingIndexId>16422</UnderlyingIndexId>
     </key>
-    <column id="278" parent="268" name="id">
+    <column id="280" parent="268" name="id">
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4926,49 +4938,49 @@ true posixrules
       <SequenceId>16402</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="279" parent="268" name="full_name">
+    <column id="281" parent="268" name="full_name">
       <Position>2</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="280" parent="268" name="mail">
+    <column id="282" parent="268" name="mail">
       <Position>3</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="281" parent="268" name="phone">
+    <column id="283" parent="268" name="phone">
       <Position>4</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="282" parent="268" name="login">
+    <column id="284" parent="268" name="login">
       <Position>5</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="283" parent="268" name="password">
+    <column id="285" parent="268" name="password">
       <Position>6</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="284" parent="268" name="role">
+    <column id="286" parent="268" name="role">
       <Position>7</Position>
       <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="285" parent="268" name="token">
+    <column id="287" parent="268" name="token">
       <Position>8</Position>
       <StateNumber>779</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="286" parent="268" name="users_pkey">
+    <index id="288" parent="268" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16409</ObjectId>
@@ -4977,7 +4989,7 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="287" parent="268" name="users_pkey">
+    <key id="289" parent="268" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16410</ObjectId>
       <Primary>1</Primary>

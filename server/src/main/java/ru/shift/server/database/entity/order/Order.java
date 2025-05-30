@@ -29,4 +29,8 @@ public class Order {
     private String typeOfService;
     @Column(name = "payment_method")
     private String paymentMethod;
+    @Column(name = "full_name")
+    private String fullName;
+    @Column(name = "status")
+    private String status;
 }

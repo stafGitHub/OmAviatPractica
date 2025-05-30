@@ -21,41 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentStatus = document.getElementById("currentStatus");
 
     let requests = [];
-    let exampleRequests = [
-        {
-            id: 1,
-            fio: "Иванов Иван Иванович",
-            phone: "+7 (123) 456-78-90",
-            service: "Ремонт крана",
-            date: "2023-05-10T14:30:00",
-            status: "completed",
-            address: "ул. Пушкина, д. 10",
-            description: "Не работает кран на кухне, протекает вода",
-        },
-        {
-            id: 2,
-            fio: "Петров Петр Петрович",
-            phone: "+7 (123) 456-78-90",
-            service: "Уборка квартиры",
-            date: "2023-06-01T09:45:00",
-            status: "in_progress",
-            address: "ул. Советская, д. 20",
-            description: "Генеральная уборка квартиры перед приездом гостей",
-        },
-        {
-            id: 3,
-            fio: "Сидоров Сидор Сидорович",
-            phone: "+7 (123) 456-78-90",
-            service: "Уборка ковров и мебели",
-            date: "2023-06-15T16:20:00",
-            status: "new",
-            address: "ул. Ленина, д. 30",
-            description: "Плановая уборка ковров и мебели",
-        },
-    ];
-
-    // УБЕРИ НАХУЙ ПОТОМ
-    requests = exampleRequests;
 
     let currentRequestId = null;
     loadRequests();
@@ -107,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             description: string    
         }
     */
-        fetch("api/orders", {
+        fetch("/api/orders", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

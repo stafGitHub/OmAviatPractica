@@ -36,12 +36,6 @@ public class MainController {
         return modelAndView;
     }
 
-    @GetMapping("adminPanel")
-    public ModelAndView adminPanelRegistration(ModelAndView modelAndView) {
-        modelAndView.setViewName("");
-        return modelAndView;
-    }
-
     @GetMapping("/orderFrom")
     public ModelAndView orderFrom(ModelAndView modelAndView) {
         modelAndView.setViewName("order-form");

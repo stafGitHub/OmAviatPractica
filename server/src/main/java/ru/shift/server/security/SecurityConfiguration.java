@@ -35,6 +35,7 @@ public class SecurityConfiguration {
                         .requestMatchers("api/order").permitAll()
                         .requestMatchers("mineIsNotMyself/admin").permitAll()
                         .requestMatchers("api/login").permitAll()
+                        .requestMatchers("api/orders").permitAll()
                         .anyRequest().authenticated());
         return http.build();
     }
