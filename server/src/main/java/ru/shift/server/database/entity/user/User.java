@@ -30,4 +30,6 @@ public class User {
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
+    @Column(name = "token")
+    private String token;
 }

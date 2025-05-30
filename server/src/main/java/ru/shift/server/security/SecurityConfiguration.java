@@ -34,6 +34,7 @@ public class SecurityConfiguration {
                         .requestMatchers("mineIsNotMyself/registration").permitAll()
                         .requestMatchers("api/order").permitAll()
                         .requestMatchers("mineIsNotMyself/admin").permitAll()
+                        .requestMatchers("api/login").permitAll()
                         .anyRequest().authenticated());
         return http.build();
     }

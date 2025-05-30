@@ -7,4 +7,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     User getUserByMail(String mail);
 
     User getUserByLogin(String login);
+
+    User getUserByLoginAndPassword(String login, String password);
 }

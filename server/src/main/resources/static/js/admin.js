@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     if (localStorage.getItem("isAdminLoggedIn") !== "true") {
         alert("Вы не авторизованы в системе администратора");
-        window.location.href = "../index.html";
+        window.location.href = "/mineIsNotMyself";
     }
 
     // Элементы интерфейса
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Обработка выхода из системы
     function handleLogout() {
-        window.location.href = "../index.html";
+        window.location.href = "/mineIsNotMyself";
     }
 
     // Загрузка списка заявок

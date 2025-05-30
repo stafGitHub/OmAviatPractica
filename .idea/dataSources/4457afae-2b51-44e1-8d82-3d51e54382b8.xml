@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>777</IntrospectionStateNumber>
+      <IntrospectionStateNumber>782</IntrospectionStateNumber>
       <ServerVersion>17.2</ServerVersion>
       <StartupTime>1748612131</StartupTime>
       <TimeZones>true ACDT
@@ -1400,7 +1400,7 @@ true posixrules
 13219||10|C|G
 13219||-9223372036854775808|U|G
 13219||10|U|G</Grants>
-      <IntrospectionStateNumber>777</IntrospectionStateNumber>
+      <IntrospectionStateNumber>782</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4822,8 +4822,8 @@ true posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>777</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-05-30.18:36:26</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>782</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-05-30.19:20:17</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4852,7 +4852,7 @@ true posixrules
     </table>
     <table id="268" parent="264" name="users">
       <ObjectId>16403</ObjectId>
-      <StateNumber>772</StateNumber>
+      <StateNumber>781</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4962,16 +4962,22 @@ true posixrules
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="285" parent="268" name="users_pkey">
+    <column id="285" parent="268" name="token">
+      <Position>8</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="286" parent="268" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16409</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>772</StateNumber>
+      <StateNumber>781</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="286" parent="268" name="users_pkey">
+    <key id="287" parent="268" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16410</ObjectId>
       <Primary>1</Primary>

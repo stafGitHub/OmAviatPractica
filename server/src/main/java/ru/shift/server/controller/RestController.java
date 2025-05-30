@@ -6,11 +6,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.shift.server.database.entity.user.User;
 import ru.shift.server.database.entity.user.UserRole;
+import ru.shift.server.dto.request.LoginRequest;
 import ru.shift.server.dto.request.OrderRequest;
 import ru.shift.server.dto.request.RegisterRequest;
+import ru.shift.server.dto.response.LoginResponse;
 import ru.shift.server.dto.response.OrderResponse;
 import ru.shift.server.dto.response.RegisterResponse;
+import ru.shift.server.exception.UserNotFound;
 import ru.shift.server.services.OrderService;
 import ru.shift.server.services.UserServices;
 
@@ -24,13 +28,13 @@ public class RestController {
     @PostMapping(value = "/register")
     public RegisterResponse registerEndpoint(@RequestBody RegisterRequest registerRequest,
                                              HttpServletResponse httpServletResponse) {
-        var saved = userServices.saveUserToDatabase(registerRequest);
-        if (saved) {
-            var userJwtInfo = userServices.getUserJwtInfo(registerRequest, UserRole.USER);
-            var cookie = new Cookie("token", userJwtInfo);
-            cookie.setPath("/");
-            cookie.setMaxAge(60 * 60 * 24 * 7 * 7);
+        var userJwtInfo = userServices.getUserJwtInfo(registerRequest, UserRole.USER);
+        var cookie = new Cookie("token", userJwtInfo);
+        cookie.setPath("/");
+        cookie.setMaxAge(60 * 60 * 24 * 7 * 7);
 
+        var saved = userServices.saveUserToDatabase(registerRequest , userJwtInfo);
+        if (saved) {
             httpServletResponse.addCookie(cookie);
             return RegisterResponse.builder()
                     .success(true)
@@ -51,5 +55,22 @@ public class RestController {
         return OrderResponse.builder()
                 .success(true)
                 .build();
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@RequestBody LoginRequest loginRequest) {
+        try {
+            var user = userServices.getUser(loginRequest);
+            boolean isAdmin = user.getRole() == UserRole.ADMIN;
+            return LoginResponse.builder()
+                    .success(isAdmin)
+                    .token(user.getToken())
+                    .build();
+        }catch (UserNotFound e){
+            return LoginResponse.builder()
+                    .success(false)
+                    .message(e.getMessage())
+                    .build();
+        }
     }
 }
