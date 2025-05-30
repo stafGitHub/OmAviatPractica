@@ -47,4 +47,10 @@ public class MainController {
         modelAndView.setViewName("order-form");
         return modelAndView;
     }
+
+    @GetMapping("/admin")
+    public ModelAndView admin(ModelAndView modelAndView) {
+        modelAndView.setViewName("adminpanel");
+        return modelAndView;
+    }
 }

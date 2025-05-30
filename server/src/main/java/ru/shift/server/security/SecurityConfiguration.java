@@ -33,6 +33,7 @@ public class SecurityConfiguration {
                         .requestMatchers("mineIsNotMyself/orderFrom").permitAll()
                         .requestMatchers("mineIsNotMyself/registration").permitAll()
                         .requestMatchers("api/order").permitAll()
+                        .requestMatchers("mineIsNotMyself/admin").permitAll()
                         .anyRequest().authenticated());
         return http.build();
     }
