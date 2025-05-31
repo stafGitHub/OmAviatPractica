@@ -5,42 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="662ebf7b-a0e2-4268-9b90-6cade5031026" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/dto/response/RegisterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/security/jwt/JwtTokenUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/security/jwt/UserJwtInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/static/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/static/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/templates/adminpanel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/templates/order-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/templates/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/templates/signin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/database/validation/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/database/validation/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/database/validation/imlp/EmailValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/database/validation/imlp/EmailValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/database/validation/imlp/LoginValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/database/validation/imlp/LoginValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/dto/request/RequestRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/dto/request/RegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/ru/shift/server/services/UserServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/css/stylesreq.css" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/css/stylesreq.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/js/scriptappl.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/js/order-form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/js/scriptauth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/js/scriptauth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/js/scriptreg.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/js/scriptreg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/js/scriptreq.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/js/scriptreq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/templates/adminPanel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/templates/adminPanelRegistration.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/templates/applicationFromPage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/templates/authorization.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/templates/registration.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/templates/request.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/compose.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/ru/shift/server/ServerApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +25,31 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/server">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="cft_stafievskiy" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cft_stafievskiy" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cft_stafievskiy" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cft_stafievskiy" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
             </expand>
             <select />
@@ -74,6 +63,7 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -116,6 +106,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build server.executor": "Run",
+    "Gradle.server [bootJar].executor": "Run",
+    "Gradle.server [buildDependents].executor": "Run",
+    "Gradle.server [build].executor": "Run",
+    "Gradle.server [jar].executor": "Run",
     "HTTP Request.generated-requests | #8.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -124,7 +118,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ServerOatApplication.executor": "Debug",
+    "Spring Boot.ServerOatApplication.executor": "Run",
     "git-widget-placeholder": "server",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/sasha/ideaProjects/MoiNeSam/server/src/main/java/ru/shift/server/security/jwt",
@@ -143,6 +137,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.shift.server.security" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sasha\ideaProjects\MoiNeSam\server\src\main\java\ru\shift\server\security\jwt" />
       <recent name="C:\Users\sasha\ideaProjects\MoiNeSam\server\src\main\resources" />
@@ -163,8 +160,93 @@
       <recent name="ru.shift.server.database.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ServerOatApplication">
-    <configuration name="generated-requests | #8" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#8" index="8" runType="Run single request">
+  <component name="RunManager" selected="Gradle.server [build]">
+    <configuration name="server [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/server" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="server [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/server" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildDependents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="server [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/server" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="server [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/server" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -189,8 +271,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.server [build]" />
+        <item itemvalue="Gradle.server [bootJar]" />
+        <item itemvalue="Gradle.server [jar]" />
         <item itemvalue="Spring Boot.ServerOatApplication" />
-        <item itemvalue="HTTP Request.generated-requests | #8" />
+        <item itemvalue="Gradle.server [buildDependents]" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +303,8 @@
       <workItem from="1748450089640" duration="98000" />
       <workItem from="1748453152835" duration="6530000" />
       <workItem from="1748460147580" duration="372000" />
-      <workItem from="1748604561028" duration="12291000" />
+      <workItem from="1748604561028" duration="25388000" />
+      <workItem from="1748693563660" duration="321000" />
     </task>
     <servers />
   </component>
@@ -247,20 +333,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/server/src/main/java/ru/shift/server/controller/AuthController.java</url>
-          <line>19</line>
-          <properties class="ru.shift.server.controller.AuthController" method="registerEndpoint">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
